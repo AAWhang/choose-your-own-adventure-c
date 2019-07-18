@@ -10,16 +10,18 @@ namespace Adventure.Branch
     public string ChoiceDesc { get; set; }
     public int BranchId { get; set; }
     public bool LobbyReturn { get; set; }
+    public bool Visited { get; set; }
 
-    public Branches(string areaName, string initialBranchStory, string afterBranchStory, string movementChoices, string choiceDesc,  int branchId, bool lobbyReturn)
+    public Branches(string areaName, string initialBranchStory, string afterBranchStory, string movementChoices, string choiceDesc,  int branchId, bool lobbyReturn, bool visited)
     {
       AreaName = areaName;
       InitialBranchStory = initialBranchStory;
-      AfterBranchStory = AfterBranchStory;
+      AfterBranchStory = afterBranchStory;
       MovementChoices = movementChoices;
       ChoiceDesc = choiceDesc;
       BranchId = branchId;
       LobbyReturn = lobbyReturn;
+      Visited = visited;
 
     }
 
