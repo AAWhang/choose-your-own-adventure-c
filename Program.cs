@@ -11,21 +11,52 @@ namespace Adventure
       bool storyActive = true;
       int currentBranch = 0;
 
-      Branches O = new Branches("bedroom", "You wake up in your bedroom in a daze. After a few minutes on your phone, you deceide to go to the (bathroom = 1 / downstairs = 2)", 0, true);
-      Branches O1 = new Branches("bathroom", "As you are relieving yourself, you hear a deep rumble coming from inside the bathroom closet. Do you explore the closet or panic and jump out of the window beside the toilet? (closet = 4 / window = 3)", 1, true);
-      Branches O2 = new Branches("downstairs", "You wake up in your bedroom", 2, true);
-      Branches O1A = new Branches("window", "The sound of the rumbling closet overwhelms your senses. You frantically jump out of the nearby window for safety, but unfortunately fall face first and die. GAME OVER.", 3, false);
-      Branches O1B = new Branches("closet", "You wake up in your bedroom", 4, true);
-      Branches O2A = new Branches("kitchen", "You wake up in your bedroom", 5, true);
-      Branches O2B = new Branches("living room", "You wake up in your bedroom", 6, true);
+      //string areaName, string initialBranchStory, string afterBranchStory, string choiceDesc, string movementChoices, int branchId, bool lobbyReturn
 
-      List<Branches> Tree = new List<Branches>() { O, O1, O2, O1A, O1B, O2A, O2B };
+      Branches X = new Branches("walk", "It's a cold night in late November, 1999. You're out on your nightly walk down the old dirt and rock path behind your house in the countryside, earbuds playing 'Bye-Bye-Bye' by Nsync via your Sony Walkman. Midway through your stroll, an unfamiliar object catches your eye on the horizon. There appears to be a new yet strangely old house residing on a hillside you've walked by countless times before...", "2nd visit", "(approach house = 1 / return home = 2)", "choice desc", 0, false);
+      Branches X1 = new Branches("mansion", "You appear to have awaken in the foyer of the old house...", "2nd visit", "(living room = 3, kitchen = 4, old house = 5)", "choice desc", 1, false);
+      Branches X2 = new Branches("home", "You decide not to investigate the suspicious house and instead finish your walk. You approach your home and begin to reach down towards the brass handle on the front door you just recently polished, when a cold chill overcomes your entire body... Everything goes dark." , "2nd visit", "", "choice desc", 2, true);
+      Branches X1A = new Branches("living room", "The sound of the rumbling closet overwhelms your senses. You frantically jump out of the nearby window for safety, but unfortunately fall face first and die. GAME OVER.", "2nd visit", "movement choice", "choice desc", 3, false);
+      Branches X1B = new Branches("kitchen", "You wake up in your bedroom", "2nd visit", "movement choice", "choice desc", 4, true);
+      Branches X1C = new Branches("upstairs", "You wake up in your bedroom", "2nd visit", "movement choice", "choice desc", 5, true);
+      Branches X1A1 = new Branches("library", "You wake up in your bedroom", "2nd visit", "movement choice", "choice desc", 6, true);
+      Branches X1A2 = new Branches("mirror room", "You wake up in your bedroom", "2nd visit", "movement choice", "choice desc", 7, true);
+      Branches X1A1A = new Branches("bookshelf", "You wake up in your bedroom", "2nd visit", "movement choice", "choice desc", 8, true);
+      Branches X1A2A = new Branches("happy reflection", "You wake up in your bedroom", "2nd visit", "movement choice", "choice desc", 9, true);
+      Branches X1A2AB = new Branches("sad reflection", "You wake up in your bedroom", "2nd visit", "movement choice", "choice desc", 10, true);
+      Branches X1B1 = new Branches("cellar", "You wake up in your bedroom", "2nd visit", "movement choice", "choice desc", 11, true);
+      Branches X1B1A = new Branches("dungeon", "You wake up in your bedroom", "2nd visit", "movement choice", "choice desc", 12, true);
+      Branches X1B1A1 = new Branches("altar", "You wake up in your bedroom", "2nd visit", "movement choice", "choice desc", 13, true);
+      Branches X1B1A1A = new Branches("candlestick", "You wake up in your bedroom", "2nd visit", "movement choice", "choice desc", 14, true);
+      Branches X1B1A1B = new Branches("knife", "You wake up in your bedroom", "2nd visit", "movement choice", "choice desc", 15, true);
+      Branches X1B1A1A1 = new Branches("coffin", "You wake up in your bedroom", "2nd visit", "movement choice", "choice desc", 16, true);
+      Branches X1C1 = new Branches("attic", "You wake up in your bedroom", "2nd visit", "movement choice", "choice desc", 17, true);
+      Branches X1C1A = new Branches("roof", "You wake up in your bedroom", "2nd visit", "movement choice", "choice desc", 18, true);
+      Branches X1C1A1 = new Branches("ledge", "You wake up in your bedroom", "2nd visit", "movement choice", "choice desc", 19, true);
+      Branches X1C2 = new Branches("bedroom", "You wake up in your bedroom", "2nd visit", "movement choice", "choice desc", 20, true);
+      Branches X1C2A = new Branches("closet", "You wake up in your bedroom", "2nd visit", "movement choice", "choice desc", 21, true);
+      Branches X1C2B = new Branches("bathroom", "You wake up in your bedroom", "2nd visit", "movement choice", "choice desc", 22, true);
+      Branches X1C2B1 = new Branches("tub", "You wake up in your bedroom", "2nd visit", "movement choice", "choice desc", 23, true);
+
+      List<Branches> Tree = new List<Branches>() { X, X1, X2, X1A, X1B, X1C, X1A1, X1A2, X1A1A, X1A2A, X1A2AB, X1B1, X1B1A, X1B1A1, X1B1A1A, X1B1A1B, X1B1A1A1, X1C1, X1C1A, X1C1A1, X1C2, X1C2A, X1C2B, X1C2B1 };
 
       while(storyActive == true)
       {
-        storyActive = Tree[currentBranch].GetStoryState();
-        Console.WriteLine(Tree[currentBranch].GetBranch());
-        currentBranch = int.Parse(Console.ReadLine());
+        
+        // storyActive = Tree[currentBranch].LobbyReturn;
+        Console.WriteLine(Tree[currentBranch].InitialBranchStory);
+        Console.BackgroundColor = ConsoleColor.Black;
+        Console.ForegroundColor = ConsoleColor.White;
+        Console.WriteLine(Tree[currentBranch].MovementChoices);
+        Console.ResetColor();
+        // currentBranch = int.Parse(Console.ReadLine());
+        if(Tree[currentBranch].LobbyReturn)
+        {
+          System.Threading.Thread.Sleep(4000);
+          currentBranch = 1; 
+        } else {
+          currentBranch = int.Parse(Console.ReadLine());
+        }
       }
 
     }

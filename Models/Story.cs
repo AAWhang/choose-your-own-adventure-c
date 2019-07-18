@@ -1,30 +1,26 @@
-using System;
-
 namespace Adventure.Branch
 {
   class Branches
   {
-    private string _areaBriefDesc;
-    private string _branch;
-    private int _branchId;
-    private bool _storyState;
+  
+    public string AreaName { get; set; }
+    public string InitialBranchStory { get; set; }
+    public string AfterBranchStory { get; set; }
+    public string MovementChoices { get; set; }
+    public string ChoiceDesc { get; set; }
+    public int BranchId { get; set; }
+    public bool LobbyReturn { get; set; }
 
-    public Branches(string areaBriefDesc, string branch, int branchId, bool storyState)
+    public Branches(string areaName, string initialBranchStory, string afterBranchStory, string movementChoices, string choiceDesc,  int branchId, bool lobbyReturn)
     {
-      _areaBriefDesc = areaBriefDesc;
-      _branch = branch;
-      _branchId = branchId;
-      _storyState = storyState;
-    }
+      AreaName = areaName;
+      InitialBranchStory = initialBranchStory;
+      AfterBranchStory = AfterBranchStory;
+      MovementChoices = movementChoices;
+      ChoiceDesc = choiceDesc;
+      BranchId = branchId;
+      LobbyReturn = lobbyReturn;
 
-    public string GetBranch()
-    {
-      return _branch;
-    }
-
-    public bool GetStoryState()
-    {
-      return _storyState;
     }
 
   }
